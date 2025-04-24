@@ -6,5 +6,6 @@ RUN apt-get update -y && apt-get install -y unzip curl && \
     mv terraform /usr/local/bin/ && \
     rm terraform.zip
 
-COPY entrypoint.sh /google/devshell/entrypoint.d/entrypoint.sh
-RUN chmod +x /google/devshell/entrypoint.d/entrypoint.sh
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+CMD [ "/usr/local/bin/automate.sh" ]

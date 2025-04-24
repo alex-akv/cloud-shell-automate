@@ -1,10 +1,20 @@
 #!/bin/bash
 
-echo "Starting automated GKE deployment..."
+echo "Starting automated GKE deployment at $(date)"
 
-PROJECT_ID=$(gcloud config get-value project 2>/dev/null)
+echo "Waiting for project ID..."
+for i in {1..60}; do
+  PROJECT_ID=$(gcloud config get-value project 2>/dev/null)
+  if [ -n "$PROJECT_ID" ]; then
+    echo "Project ID found: $PROJECT_ID"
+    break
+  fi
+  echo "Project ID not set yet, waiting..."
+  sleep 1
+done
+
 if [ -z "$PROJECT_ID" ]; then
-  echo "Error: No project ID set. Please set a project with 'gcloud config set project PROJECT_ID'."
+  echo "Error: Project ID not set after 60 seconds. Please set a project with 'gcloud config set project PROJECT_ID' and try again."
   exit 1
 fi
 

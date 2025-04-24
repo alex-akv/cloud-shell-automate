@@ -14,17 +14,17 @@ gcloud container clusters create my-gke-cluster \
   --machine-type e2-micro \
   --num-nodes 1 \
   --project "$PROJECT_ID" \
-  --quiet
+  --quiet | tee /dev/tty
 
 echo "Fetching cluster credentials..."
 gcloud container clusters get-credentials my-gke-cluster \
   --zone us-central1-a \
-  --project "$PROJECT_ID"
+  --project "$PROJECT_ID" | tee /dev/tty
 
 echo "Waiting for cluster to be ready..."
 sleep 60
 
 echo "Deploying application..."
-kubectl apply -f deployment.yaml
+kubectl apply -f deployment.yaml | tee /dev/tty
 
 echo "Setup complete! Check your deployment with 'kubectl get pods'."

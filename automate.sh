@@ -4,7 +4,7 @@ echo "Starting automated GKE deployment at $(date)"
 
 echo "Waiting for project ID..."
 for i in {1..60}; do
-  PROJECT_ID=$(gcloud config get-value project 2>/dev/null)
+  PROJECT_ID=akvelon-gke-aieco
   if [ -n "$PROJECT_ID" ]; then
     echo "Project ID found: $PROJECT_ID"
     break

@@ -6,9 +6,7 @@ RUN apt-get update -y && apt-get install -y unzip curl && \
     mv terraform /usr/local/bin/ && \
     rm terraform.zip
 
-COPY run-once.sh /etc/init.d/run-once.sh
-RUN chmod +x /etc/init.d/run-once.sh
-
-# fallback to try script run via entrypoint.d
 COPY run-once.sh /google/devshell/entrypoint.d/10-run-once.sh
 RUN chmod +x /google/devshell/entrypoint.d/10-run-once.sh
+
+ENTRYPOINT [ "/google/devshell/entrypoint.d/10-run-once.sh" ]

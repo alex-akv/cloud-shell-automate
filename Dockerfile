@@ -6,7 +6,4 @@ RUN apt-get update -y && apt-get install -y unzip curl && \
     mv terraform /usr/local/bin/ && \
     rm terraform.zip
 
-COPY automate.sh ./automate.sh
-COPY deployment.yaml ./deployment.yaml
-COPY main.tf ./main.tf
 RUN chmod +x ./automate.sh

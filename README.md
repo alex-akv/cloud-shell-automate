@@ -16,7 +16,7 @@ This repository provides a script to deploy or destroy a GKE cluster and an exam
 ### Run in Cloud Shell
 Click the button below to open this repository in Cloud Shell:
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/alex-akv/cloud-shell-automate.git)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/alex-akv/cloud-shell-automate.git?cloudshell_tutorial=README.md)
 
 ## Cleanup
 To destroy the infrastructure, run:
